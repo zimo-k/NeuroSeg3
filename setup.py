@@ -1,15 +1,11 @@
-# Ultralytics YOLO 🚀, AGPL-3.0 license
-
 import re
 from pathlib import Path
-
 from setuptools import setup
 
 # Settings
 FILE = Path(__file__).resolve()
 PARENT = FILE.parent  # root directory
 README = (PARENT / 'README.md').read_text(encoding='utf-8')
-
 
 def get_version():
     """
@@ -21,7 +17,6 @@ def get_version():
     file = PARENT / 'ultralytics/__init__.py'
     return re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', file.read_text(encoding='utf-8'), re.M)[1]
 
-
 def parse_requirements(file_path: Path):
     """
     Parse a requirements.txt file, ignoring lines that start with '#' and any text after '#'.
@@ -32,7 +27,6 @@ def parse_requirements(file_path: Path):
     Returns:
         (List[str]): List of parsed requirements.
     """
-
     requirements = []
     for line in Path(file_path).read_text().splitlines():
         line = line.strip()
@@ -41,29 +35,19 @@ def parse_requirements(file_path: Path):
 
     return requirements
 
-
 setup(
     name='ultralytics',  # name of pypi package
     version=get_version(),  # version of pypi package
     python_requires='>=3.8',
     license='AGPL-3.0',
-    description=('Ultralytics YOLOv8 for SOTA object detection, multi-object tracking, instance segmentation, '
+    description=('ultralytics YOLOv8 for SOTA object detection, multi-object tracking, instance segmentation, '
                  'pose estimation and image classification.'),
     long_description=README,
     long_description_content_type='text/markdown',
-    url='https://github.com/ultralytics/ultralytics',
-    project_urls={
-        'Bug Reports': 'https://github.com/ultralytics/ultralytics/issues',
-        'Funding': 'https://ultralytics.com',
-        'Source': 'https://github.com/ultralytics/ultralytics'},
-    author='Ultralytics',
-    author_email='hello@ultralytics.com',
+    author='NeuroSeg3',
+    author_email='wuu_yukun@163.com',
     packages=['ultralytics'] + [str(x) for x in Path('ultralytics').rglob('*/') if x.is_dir() and '__' not in str(x)],
-    package_data={
-        '': ['*.yaml'],
-        'ultralytics.assets': ['*.jpg']},
     include_package_data=True,
-    install_requires=parse_requirements(PARENT / 'requirements.txt'),
     extras_require={
         'dev': [
             'ipython',
@@ -82,7 +66,8 @@ setup(
             'openvino-dev>=2023.0',
             'tensorflow<=2.13.1',
             'tensorflowjs',  # automatically installs tensorflow
-        ], },
+        ],
+    },
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -100,6 +85,8 @@ setup(
         'Topic :: Scientific/Engineering :: Image Recognition',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS',
-        'Operating System :: Microsoft :: Windows', ],
-    keywords='machine-learning, deep-learning, vision, ML, DL, AI, YOLO, YOLOv3, YOLOv5, YOLOv8, HUB, Ultralytics',
-    entry_points={'console_scripts': ['yolo = ultralytics.cfg:entrypoint', 'ultralytics = ultralytics.cfg:entrypoint']})
+        'Operating System :: Microsoft :: Windows',
+    ],
+    keywords='machine-learning, deep-learning, vision, ML, DL, AI, YOLO, YOLOv3, YOLOv5, YOLOv8, HUB, ultralytics',
+    entry_points={'console_scripts': ['yolo = ultralytics.cfg:entrypoint', 'ultralytics = ultralytics.cfg:entrypoint']}
+)

@@ -1,4 +1,4 @@
-# Ultralytics YOLO 🚀, AGPL-3.0 license
+# ultralytics YOLO 🚀, AGPL-3.0 license
 
 import contextlib
 import hashlib
@@ -465,7 +465,7 @@ class HUBDatasetStats:
         compress_one_image(f, self.im_dir / Path(f).name)  # save to dataset-hub
 
     def get_json(self, save=False, verbose=False):
-        """Return dataset JSON for Ultralytics HUB."""
+        """Return dataset JSON for ultralytics HUB."""
 
         def _round(labels):
             """Update labels to integer class and 4 decimal place floats."""
@@ -544,7 +544,7 @@ class HUBDatasetStats:
         return self.stats
 
     def process_images(self):
-        """Compress images for Ultralytics HUB."""
+        """Compress images for ultralytics HUB."""
         from ultralytics.data import YOLODataset  # ClassificationDataset
 
         for split in 'train', 'val', 'test':

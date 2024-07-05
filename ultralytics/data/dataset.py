@@ -1,4 +1,4 @@
-# Ultralytics YOLO 🚀, AGPL-3.0 license
+# ultralytics YOLO 🚀, AGPL-3.0 license
 import contextlib
 from itertools import repeat
 from multiprocessing.pool import ThreadPool
@@ -15,7 +15,7 @@ from .augment import Compose, Format, Instances, LetterBox, classify_albumentati
 from .base import BaseDataset
 from .utils import HELP_URL, LOGGER, get_hash, img2label_paths, verify_image, verify_image_label
 
-# Ultralytics dataset *.cache version, >= 1.0.0 for YOLOv8
+# ultralytics dataset *.cache version, >= 1.0.0 for YOLOv8
 DATASET_CACHE_VERSION = '1.0.3'
 
 
@@ -301,7 +301,7 @@ class ClassificationDataset(torchvision.datasets.ImageFolder):
 
 
 def load_dataset_cache_file(path):
-    """Load an Ultralytics *.cache dictionary from path."""
+    """Load an ultralytics *.cache dictionary from path."""
     import gc
     gc.disable()  # reduce pickle load time https://github.com/ultralytics/ultralytics/pull/1585
     cache = np.load(str(path), allow_pickle=True).item()  # load dict
@@ -310,7 +310,7 @@ def load_dataset_cache_file(path):
 
 
 def save_dataset_cache_file(prefix, path, x):
-    """Save an Ultralytics dataset *.cache dictionary x to path."""
+    """Save an ultralytics dataset *.cache dictionary x to path."""
     x['version'] = DATASET_CACHE_VERSION  # add cache version
     if is_dir_writeable(path.parent):
         if path.exists():

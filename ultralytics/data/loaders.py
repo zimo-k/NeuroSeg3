@@ -1,4 +1,4 @@
-# Ultralytics YOLO 🚀, AGPL-3.0 license
+# ultralytics YOLO 🚀, AGPL-3.0 license
 
 import glob
 import math
@@ -484,7 +484,7 @@ def autocast_list(source):
         elif isinstance(im, (Image.Image, np.ndarray)):  # PIL or np Image
             files.append(im)
         else:
-            raise TypeError(f'type {type(im).__name__} is not a supported Ultralytics prediction source type. \n'
+            raise TypeError(f'type {type(im).__name__} is not a supported ultralytics prediction source type. \n'
                             f'See https://docs.ultralytics.com/modes/predict for supported source types.')
 
     return files

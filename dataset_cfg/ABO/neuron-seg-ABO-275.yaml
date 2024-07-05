@@ -1,0 +1,8 @@
+path: ./dataset/ABO_1/train_275 # dataset root dir
+train: train  # 70 images
+val: val  # 10 images
+test:  # test images (optional)
+
+# Classes
+names:
+  0: neuron
